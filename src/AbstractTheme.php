@@ -1,0 +1,65 @@
+<?php
+/**
+ * Abstract Theme
+ *
+ * @author Whizark <devaloka@whizark.com>
+ * @see http://whizark.com
+ * @copyright Copyright (C) 2014 Whizark.
+ * @license MIT
+ * @license GPL-2.0
+ * @license GPL-3.0
+ */
+
+namespace Devaloka\Theme;
+
+use WP_Theme;
+
+/**
+ * Class AbstractTheme
+ *
+ * @package Devaloka\Theme
+ */
+abstract class AbstractTheme implements ThemeInterface
+{
+    use ThemeTrait;
+
+    protected $wpTheme;
+
+    /**
+     * Constructor.
+     *
+     * @param string $file The absolute path to the stylesheet file.
+     */
+    public function __construct($file)
+    {
+        $this->wpTheme = new WP_Theme(basename(dirname($file)), dirname(dirname($file)));
+
+        // /<path>/<wp-content>/<themes>/<theme>
+        $this->directory = $this->wpTheme->get_stylesheet_directory();
+
+        // http://<example.com>/<wp-content>/<themes>/<themes>
+        $this->directoryUri = $this->wpTheme->get_stylesheet_directory_uri();
+
+        // /<path>/<wp-content>/<themes>/<themes>/functions.php
+        $this->file = $file;
+
+        // http://<example.com>/<wp-content>/<themes>/<theme>/functions.php
+        $this->fileUri = $this->directoryUri . '/' . basename($file);
+
+        // <theme>
+        $this->textDomain = $this->wpTheme->get('TextDomain');
+
+        // </languages>
+        $this->domainPath = $this->wpTheme->get('DomainPath');
+
+        // <locale>
+        $this->locale = get_locale();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setup()
+    {
+    }
+}

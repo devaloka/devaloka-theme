@@ -52,6 +52,12 @@ trait TranslatableThemeTrait
     {
         /** @var ThemeInterface $this */
 
+        $parent = $this->getParent();
+
+        if ($parent === null && is_child_theme()) {
+            return false;
+        }
+
         $locale = ($locale !== null) ? $locale : $this->getLocale();
         $path   = ($path !== null) ? $path : $this->getDomainPath();
 
@@ -59,6 +65,16 @@ trait TranslatableThemeTrait
 
         if (is_readable($localeFile)) {
             require_once $localeFile;
+        }
+
+        // Load the parent theme's locale file after the child theme's locale file is loaded
+        // if the parent theme is also translatable.
+        if ($parent instanceof TranslatableThemeInterface) {
+            $localeFile = $parent->getDirectory() . $parent->getDomainPath() . '/' . $locale . '.php';
+
+            if (is_readable($localeFile)) {
+                require_once $localeFile;
+            }
         }
     }
 }

@@ -42,7 +42,7 @@ trait TranslatableThemeTrait
         // Merge parent theme's translations into the child theme's text domain
         // if the parent theme is also translatable.
         if ($parent instanceof TranslatableThemeInterface) {
-            load_theme_textdomain($domain, $parent->getDirectory() . $path);
+            load_theme_textdomain($domain, $parent->getDirectory() . $parent->getDomainPath());
         }
 
         return $isLoaded;

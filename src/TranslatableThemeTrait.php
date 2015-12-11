@@ -30,15 +30,22 @@ trait TranslatableThemeTrait
         /** @var ThemeInterface $this */
 
         $parent = $this->getParent();
-        $domain = ($domain !== null) ? $domain : $this->getTextDomain();
-        $path   = ($path !== null) ? $path : $this->getDomainPath();
 
-        // Merges the parent translations into the child theme's text domain, if the parent theme exists.
+        if ($parent === null && is_child_theme()) {
+            return false;
+        }
+
+        $domain   = ($domain !== null) ? $domain : $this->getTextDomain();
+        $path     = ($path !== null) ? $path : $this->getDomainPath();
+        $isLoaded = load_theme_textdomain($domain, $this->getDirectory() . $path);
+
+        // Merge parent theme's translations into the child theme's text domain
+        // if the parent theme is also translatable.
         if ($parent instanceof TranslatableThemeInterface) {
             load_theme_textdomain($domain, $parent->getDirectory() . $path);
         }
 
-        return load_theme_textdomain($domain, $this->getDirectory() . $path);
+        return $isLoaded;
     }
 
     public function loadLocaleFile($locale = null, $path = null)

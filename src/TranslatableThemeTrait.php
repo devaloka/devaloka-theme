@@ -55,7 +55,7 @@ trait TranslatableThemeTrait
         $locale = ($locale !== null) ? $locale : $this->getLocale();
         $path   = ($path !== null) ? $path : $this->getDomainPath();
 
-        $localeFile = $path . '/' . $locale . '.php';
+        $localeFile = $this->getDirectory() . $path . '/' . $locale . '.php';
 
         if (is_readable($localeFile)) {
             require_once $localeFile;

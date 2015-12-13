@@ -46,14 +46,21 @@ abstract class AbstractTheme implements ThemeInterface
         // http://<example.com>/<wp-content>/<themes>/<theme>/functions.php
         $this->fileUri = $this->directoryUri . '/' . basename($file);
 
-        // <theme>
-        $this->textDomain = $this->wpTheme->get('TextDomain');
 
-        // </languages>
-        $this->domainPath = $this->wpTheme->get('DomainPath');
+        if ($this instanceof TranslatableThemeInterface) {
+            // <theme>
+            $textDomain = $this->wpTheme->get('TextDomain');
 
-        // <locale>
-        $this->locale = get_locale();
+            // </languages>
+            $domainPath = $this->wpTheme->get('DomainPath');
+
+            // <locale>
+            $locale = get_locale();
+
+            $this->setTextDomain($textDomain);
+            $this->setDomainPath($domainPath);
+            $this->setLocale($locale);
+        }
     }
 
     /**

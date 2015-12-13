@@ -27,12 +27,6 @@ trait ThemeTrait
 
     protected $fileUri;
 
-    protected $textDomain;
-
-    protected $domainPath;
-
-    protected $locale;
-
     protected $parent;
 
     /**
@@ -72,7 +66,16 @@ trait ThemeTrait
      */
     public function getTextDomain()
     {
-        return $this->textDomain;
+        if (WP_DEBUG && apply_filters('deprecated_function_trigger_error', true)) {
+            trigger_error(
+                sprintf(
+                    '%1$s is <strong>deprecated</strong> since version %2$s! Use %3$s instead.',
+                    __METHOD__,
+                    '0.6.0',
+                    '\Devaloka\Translation\TranslatableTrait::getTextDomain()'
+                )
+            );
+        }
     }
 
     /**
@@ -80,7 +83,16 @@ trait ThemeTrait
      */
     public function getDomainPath()
     {
-        return $this->domainPath;
+        if (WP_DEBUG && apply_filters('deprecated_function_trigger_error', true)) {
+            trigger_error(
+                sprintf(
+                    '%1$s is <strong>deprecated</strong> since version %2$s! Use %3$s instead.',
+                    __METHOD__,
+                    '0.6.0',
+                    '\Devaloka\Translation\TranslatableTrait::getDomainPath()'
+                )
+            );
+        }
     }
 
     /**
@@ -88,7 +100,16 @@ trait ThemeTrait
      */
     public function getLocale()
     {
-        return $this->locale;
+        if (WP_DEBUG && apply_filters('deprecated_function_trigger_error', true)) {
+            trigger_error(
+                sprintf(
+                    '%1$s is <strong>deprecated</strong> since version %2$s! Use %3$s instead.',
+                    __METHOD__,
+                    '0.6.0',
+                    '\Devaloka\Translation\TranslatableTrait::getLocale()'
+                )
+            );
+        }
     }
 
     /**

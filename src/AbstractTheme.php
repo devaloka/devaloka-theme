@@ -46,7 +46,6 @@ abstract class AbstractTheme implements ThemeInterface
         // http://<example.com>/<wp-content>/<themes>/<theme>/functions.php
         $this->fileUri = $this->directoryUri . '/' . basename($file);
 
-
         if ($this instanceof TranslatableThemeInterface) {
             // <theme>
             $textDomain = $this->wpTheme->get('TextDomain');

@@ -62,6 +62,15 @@ abstract class AbstractTheme implements ThemeInterface
         }
     }
 
+    public function __call($name, array $arguments)
+    {
+        $method = [$this->parent, $name];
+
+        if ($this->parent !== null && is_callable($method)) {
+            return call_user_func_array($method, $arguments);
+        }
+    }
+
     /**
      * {@inheritDoc}
      */

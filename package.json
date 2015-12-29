@@ -1,6 +1,6 @@
 {
     "name"           : "devaloka-theme",
-    "version"        : "0.6.1",
+    "version"        : "0.6.2",
     "description"    : "Provides Interfaces, Traits, and Classes for WordPress Theme",
     "keywords"       : [
         "wordpress",

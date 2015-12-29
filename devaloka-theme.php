@@ -2,7 +2,7 @@
 /*
 Plugin Name: Devaloka Theme
 Description: Provides Interfaces, Traits, and Classes for WordPress Theme
-Version: 0.6.1
+Version: 0.6.2
 Author: Whizark
 Author URI: http://whizark.com
 License: GPL-2.0+

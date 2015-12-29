@@ -1,7 +1,7 @@
 {
     "name"             : "devaloka/devaloka-theme",
     "description"      : "Provides Interfaces, Traits, and Classes for WordPress Theme",
-    "version"          : "0.6.1",
+    "version"          : "0.6.2",
     "type"             : "devaloka-muplugin",
     "keywords"         : [
         "wordpress",

@@ -1,4 +1,4 @@
-# Devaloka Theme [![Build Status](https://travis-ci.org/devaloka/devaloka-theme.svg?branch=master)](https://travis-ci.org/devaloka/devaloka-theme) [![Packagist](https://img.shields.io/packagist/v/devaloka/devaloka-theme.svg)](https://packagist.org/packages/devaloka/devaloka-theme)
+# Devaloka Theme [![Build Status][travis-image]][travis-url] [![Packagist][packagist-image]][packagist-url]
 
 A WordPress Plugin that provides Interfaces, Traits, and Classes for Theme
 development.
@@ -21,3 +21,9 @@ development.
     ```sh
     composer require devaloka/devaloka-theme
     ```
+
+[travis-image]: https://travis-ci.org/devaloka/devaloka-theme.svg?branch=master
+[travis-url]: https://travis-ci.org/devaloka/devaloka-theme
+
+[packagist-image]: https://img.shields.io/packagist/v/devaloka/devaloka-theme.svg
+[packagist-url]: https://packagist.org/packages/devaloka/devaloka-theme

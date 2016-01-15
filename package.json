@@ -1,29 +1,5 @@
 {
-    "name"           : "devaloka-theme",
     "version"        : "0.6.2",
-    "description"    : "Provides Interfaces, Traits, and Classes for WordPress Theme",
-    "keywords"       : [
-        "wordpress",
-        "theme"
-    ],
-    "homepage"       : "https://github.com/devaloka/devaloka-theme",
-    "bugs"           : {
-        "url": "https://github.com/devaloka/devaloka-theme/issues"
-    },
-    "license"        : "(MIT OR GPL-2.0 OR GPL-3.0)",
-    "author"         : {
-        "name" : "Whizark",
-        "email": "devaloka@whizark.com",
-        "url"  : "http://whizark.com"
-    },
-    "files"          : [
-        "./MIT-LICENSE.txt",
-        "./GPL-LICENSE.txt",
-        "./devaloka-theme.php",
-        "./loader/*",
-        "./src/*"
-    ],
-    "main"           : "./devaloka-theme.php",
     "repository"     : {
         "type": "git",
         "url" : "https://github.com/devaloka/devaloka-theme.git"
@@ -39,5 +15,6 @@
         "remark"      : "^3.2.0",
         "remark-lint" : "^2.1.0",
         "semver"      : "^5.1.0"
-    }
+    },
+    "private"        : true
 }
